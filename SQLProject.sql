@@ -34,7 +34,6 @@ order by 1,2
 
 Select Location, date, Population, total_cases,  (total_cases/population)*100 as PercentPopulationInfected
 From PortfolioProject..CovidDeaths
---Where location = 'Canada'
 order by 1,2
 
 
@@ -42,7 +41,6 @@ order by 1,2
 
 Select Location, Population, MAX(total_cases) as HighestInfectionCount,  Max((total_cases/population))*100 as PercentPopulationInfected
 From PortfolioProject..CovidDeaths
---Where location like '%states%'
 Group by Location, Population
 order by PercentPopulationInfected desc
 
@@ -51,7 +49,6 @@ order by PercentPopulationInfected desc
 
 Select Location, MAX(cast(Total_deaths as int)) as TotalDeathCount
 From PortfolioProject..CovidDeaths
---Where location like '%states%'
 Where continent is not null 
 Group by Location
 order by TotalDeathCount desc
@@ -64,7 +61,6 @@ order by TotalDeathCount desc
 
 Select continent, MAX(cast(Total_deaths as int)) as TotalDeathCount
 From PortfolioProject..CovidDeaths
---Where location like '%states%'
 Where continent is not null 
 Group by continent
 order by TotalDeathCount desc
